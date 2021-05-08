@@ -2,6 +2,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 import pandas
 import glob
+import time
 
 class ProcessData:
     
@@ -9,15 +10,20 @@ class ProcessData:
 
         self.appliances = {}
 
+        self.dates = {}
+
 
     def Scaler(self, X):
         scaler = MinMaxScaler( feature_range=(0, 1))
         return scaler.fit_transform(X)
 
 
-    def Spliter(self, X_st, Y):
-        X_train, X_test, y_train, y_test = train_test_split(X_st, Y, test_size=0.33, random_state=42)
-        return X_train, X_test, y_train, y_test
+    def Spliter(self, x_Scaled, Y):
+        
+        x_Train, x_Test, y_Train, y_Test = train_test_split(x_Scaled, Y, test_size=0.33, random_state=42)
+        inputShape = x_Train.shape[1]
+        
+        return x_Train, x_Test, y_Train, y_Test, inputShape
 
 
     def Resampler(self, dataFrame, time, appliance):
@@ -62,7 +68,10 @@ class ProcessData:
         
         return dataset_house
 
-
+    def GetDates(self, dataFrame):
+        self.dates = [str(time)[:10] for time in dataFrame.index.values]
+        return sorted(list(set(self.dates)))
+    
 
 
     # def __init__(self):
