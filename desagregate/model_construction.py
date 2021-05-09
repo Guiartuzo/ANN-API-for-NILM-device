@@ -48,9 +48,9 @@ class Model:
         
         start = time.time()
         
-        checkpointer = ModelCheckpoint(filepath="4rd_model.hdf5", verbose=0, save_best_only=True)
+        checkpointer = ModelCheckpoint(filepath="4th_model.hdf5", verbose=0, save_best_only=True)
         
-        model.fit( x_Train, y_Train, batch_size=512, verbose=1, epochs=200, validation_data=(x_Test,y_Test), callbacks=[checkpointer])
+        model.fit( x_Train, y_Train, batch_size=512, verbose=1, epochs=400, validation_data=(x_Test,y_Test), callbacks=[checkpointer])
         
         print('Finish trainning. Time: ', time.time() - start)
 
@@ -128,7 +128,7 @@ if __name__ == "__main__":
     # print(house_plot)
 
 
-    prediction, model_mse_loss, model_mae_loss = predict.ModelTest('3rd_model.hdf5', x_Test, y_Test)
+    prediction, model_mse_loss, model_mae_loss = predict.ModelTest('4th_model.hdf5', x_Test, y_Test)
     plt.PlotPredictions(data_test, house_dates[18:], prediction, y_Test, "teste", look_back=50)
 
     built_model = md.ModelConstruct([4, 256, 512, 1024, 1])

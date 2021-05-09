@@ -1,0 +1,8 @@
+1 modelo : resampling, dataset errado
+
+2 modelo: resampling, baseado em dias, dataset errado
+
+3 modelo: sem resampling, dividido por dias, dataset corrigido
+
+3 modelo: sem resampling, dividido por dias, porém com 400 epocas 
+    (pois o treinamento anterior apresentou val loss menor que train loss)
