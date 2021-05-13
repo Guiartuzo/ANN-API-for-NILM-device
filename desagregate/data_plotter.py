@@ -29,8 +29,8 @@ class Plotter:
             ind = dataFrame.loc[dates[i]].index[look_back:]
             print(ind.shape)
             print(ind)
-            axes.flat[i].plot(ind, y_Test[l:l+len(ind)], color = 'blue', alpha = 0.6, label = 'True value')
-            axes.flat[i].plot(ind, prediction[l:l+len(ind)], color = 'red', alpha = 0.6, label = 'Predicted value')
+            axes.flat[i].plot(ind, y_Test[l:l+len(ind)], color = 'blue', alpha = 0.6, label = 'Valor real')
+            axes.flat[i].plot(ind, prediction[l:l+len(ind)], color = 'red', alpha = 0.6, label = 'Valor previsto pelo modelo')
             # axes.flat[i].plot(ind, y_Test, color = 'blue', alpha = 0.6, label = 'True value')
             # axes.flat[i].plot(ind, prediction, color = 'red', alpha = 0.6, label = 'Predicted value')
             

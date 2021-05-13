@@ -73,6 +73,46 @@ class ProcessData:
         return sorted(list(set(self.dates)))
     
 
+    def LoadMultipleHouses(self, house, app_label):
+
+        selected_appliance = []
+
+        self.LoadApplianceValues(house)
+        data_set = self.OpenHouseData(house)
+
+        data_set = self.AddDifAverage(data_set)
+
+        x_Train = data_set[['mains-1',  'mains-2', 'mains-dif', 'mains-avg']]
+
+
+        selected_appliance = [k for k, v in self.appliances.items() if app_label in v]
+
+        for app in selected_appliance:
+            
+            print('{0}-{1}'.format(app_label,app))
+            y_Train = data_set[['{0}-{1}'.format(app_label,app)]]
+
+        print(x_Train)
+        print(y_Train)
+
+        return x_Train, y_Train
+
+
+
+
+
+        # path_to_app = 'low_freq\\{0}\\channel_{1}.dat'.format(house, app_label)
+        # house_app = pandas.read_table(path_to_app, sep = ' ', names = ['unix_time', 'labels'], dtype = {'unix_time': 'int64', 'labels':'float64'})
+        # self.dataset_app = self.dataset_app.append(house_app)
+
+        # path_to_house = 'low_freq\\{0}\\channel_'.format(house)
+        # house_mains_1 = pandas.read_table(path_to_house + '1.dat', sep = ' ', names = ['unix_time', 'labels'], dtype = {'unix_time': 'int64', 'labels':'float64'}) 
+        # house_mains_2 = pandas.read_table(path_to_house + '2.dat', sep = ' ', names = ['unix_time', 'labels'], dtype = {'unix_time': 'int64', 'labels':'float64'}) 
+        # self.dataset_house = pandas.merge(house_mains_1, house_mains_2, how = "inner", on = "unix_time")
+        # print(house_mains_1)
+        # print(house_mains_2)
+        # print(self.dataset_house)
+
 
     # def __init__(self):
 
@@ -112,10 +152,6 @@ class ProcessData:
         
     #     for index, row in house_mains_1.iterrows():
     #         print(datetime.utcfromtimestamp(row['unix_time']).strftime('%Y-%m-%d %H:%M:%S'))
-
-
-
-
 
 
 

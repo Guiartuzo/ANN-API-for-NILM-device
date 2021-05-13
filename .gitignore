@@ -4,3 +4,6 @@ not.py
 fc*
 modelo*
 __pycache__
+*.txt
+y*
+x*
