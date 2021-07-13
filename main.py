@@ -25,16 +25,12 @@ if __name__ == "__main__":
     main = Main()
 
     for house in range(1,2):
-        
+
         for app in main.appliances:
-
             name = "trained_models\\house-{0}_{1}.hdf5".format(house,app)
-
             print("casa {0} / app {1}".format(house, app))
-            main.mp.HousePredict(house, name, app)
 
             x, y, dates = main.pd.LoadMultipleHouses(house, app)
-
             y.columns = [app]
 
             x_Train = x
@@ -43,11 +39,8 @@ if __name__ == "__main__":
             print(x_Train)
             print(y_Train)
 
-            x_Train, x_Test, y_Train, y_Test = main.pd.Spliter(x_Train, y_Train)
-
+            # x_Train, x_Test, y_Train, y_Test = main.pd.Spliter(x_Train, y_Train)
             built_model = main.mc.ModelConstruct([3, 64, 128, 256, 1]) 
-
-            plot_model(built_model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
-
-            main.mc.ModelFit(name, built_model, x_Train, x_Test, y_Train, y_Test)
-            main.mc.train(name,built_model, x_Train,y_Train)
+            # plot_model(built_model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
+            # main.mc.train(name,built_model, x_Train,y_Train)
+            main.mp.HousePredict(house, name, app)
