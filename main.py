@@ -39,8 +39,8 @@ if __name__ == "__main__":
             print(x_Train)
             print(y_Train)
 
-            # x_Train, x_Test, y_Train, y_Test = main.pd.Spliter(x_Train, y_Train)
+            x_Train, x_Test, y_Train, y_Test = main.pd.Spliter(x_Train, y_Train)
             built_model = main.mc.ModelConstruct([3, 64, 128, 256, 1]) 
-            # plot_model(built_model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
-            # main.mc.train(name,built_model, x_Train,y_Train)
+            plot_model(built_model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
+            main.mc.train(name,built_model, x_Train,y_Train)
             main.mp.HousePredict(house, name, app)
