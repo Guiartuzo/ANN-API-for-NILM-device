@@ -11,7 +11,20 @@ Clone the repo and put the REDD 'low_freq' folder inside
 
 Results for the Refrigerator model:
 
-![image](https://user-images.githubusercontent.com/59294163/125371961-4f2e6580-e358-11eb-9376-d3b7a4b26cce.png)
+![image](https://user-images.githubusercontent.com/59294163/134264174-6ecd5f3f-d7a0-4c56-8226-540d7fc22f2b.png)
+
+Results for the dish-washer model:
+
+![image](https://user-images.githubusercontent.com/59294163/134263995-991f5f1d-8569-420b-bca6-2e0c3805608e.png)
+
+Results for the microwave model:
+
+![image](https://user-images.githubusercontent.com/59294163/134264059-75eacc46-d2f3-4900-a37a-e7cc6963490c.png)
+
+Architecture of the neural net:
+
+![image](https://user-images.githubusercontent.com/59294163/134264275-3593d03a-5ad5-48e7-960f-2cf760fbedaf.png)
+
 
 Below you can find the work, submitted to Post-Graduation course in Eletrical Power Systems for the university of UNISAL
 
